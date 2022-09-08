@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeOverlay.Button.Flat" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlHighlight">@color/color_control_highlight_flat</item>
+    </style>
+
+
+</resources>

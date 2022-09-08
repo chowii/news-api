@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Beautiful Shop</string>
+
+    <string name="navigation_button_headlines">Headlines</string>
+    <string name="navigation_button_sources">Sources</string>
+    <string name="navigation_button_saved">Saved</string>
 </resources>

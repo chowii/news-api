@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorSecondary</item>
+
+        <!-- Text Appearances -->
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Title6</item>
+        <item name="android:textAppearance">@style/TextAppearance.Base</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Caption</item>
+
+        <item name="android:textViewStyle">@style/TextView.Base</item>
+        <item name="editTextStyle">@style/EditText.Base</item>
+        <item name="textInputStyle">@style/TextInputLayout.Base</item>
+        <item name="materialCardViewStyle">@style/CardView.Base</item>
+
+    </style>
+</resources>

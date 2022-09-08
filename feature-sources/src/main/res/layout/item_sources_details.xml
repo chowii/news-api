@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.news.sources.data.SourceItemUiModel" />
+
+        <variable
+            name="clickListener"
+            type="com.example.news.sources.presentation.SourceClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/quarter_default_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/quarter_default_padding">
+
+            <TextView
+                android:id="@+id/source_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/quarter_default_margin"
+                android:layout_marginBottom="@dimen/quarter_default_margin"
+                android:text="@{ data.category }"
+                android:textAppearance="?attr/textAppearanceCaption"
+                app:layout_constraintBottom_toTopOf="@id/source_name"
+                app:layout_constraintEnd_toEndOf="@id/source_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/source_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/quarter_default_margin"
+                android:text="@{ data.name }"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@id/source_description"
+                app:layout_constraintEnd_toStartOf="@id/source_switch"
+                app:layout_constraintStart_toStartOf="@id/source_category"
+                app:layout_constraintTop_toBottomOf="@id/source_category" />
+
+            <TextView
+                android:id="@+id/source_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/quarter_default_margin"
+                android:text="@{ data.description }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/source_switch"
+                app:layout_constraintStart_toStartOf="@id/source_category"
+                app:layout_constraintTop_toBottomOf="@id/source_name" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/source_switch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/quarter_default_margin"
+                android:checked="@{ data.isSelected }"
+                android:onClick="@{ () -> clickListener.onSourceClicked(data) }"
+                app:layout_constraintBottom_toBottomOf="@id/source_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/source_category" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

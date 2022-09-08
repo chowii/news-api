@@ -1,3 +1,6 @@
+# Setup
+- JDK Version 11 is required by Gradle JDK to be able to compile the application. Android Studio Chipmunk packages with JDK 11.
+- API Key is required for the application to run as expected. Please place API Key in `local.properties` with key `API_KEY`.
 ## Articles Headlines App
 Create a proof of concept for an App that displays trend articles and allow the user to save news for reading later.
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saved_empty_title">No Saved Articles</string>
+    <string name="saved_empty_message">There seems to be no Saved Articles. Unable to load Saved Articles</string>
+    <string name="saved_try_again">Try again</string>
+</resources>

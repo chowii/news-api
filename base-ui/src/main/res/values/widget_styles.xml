@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextView.Base" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Base</item>
+    </style>
+
+    <style name="EditText.Base" parent="android:Widget.EditText">
+        <item name="android:textAppearance">@style/TextAppearance.Base</item>
+    </style>
+
+    <style name="TextInputLayout.Base" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
+
+    <style name="CardView.Base" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/card_border_radius</item>
+        <item name="cardElevation">@dimen/card_view_default_elevation</item>
+    </style>
+
+    <style name="Button.Primary.Flat" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:minWidth">@dimen/min_width_button</item>
+        <item name="android:theme">@style/ThemeOverlay.Button.Flat</item>
+    </style>
+
+
+</resources>

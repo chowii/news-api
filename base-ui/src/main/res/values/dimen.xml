@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="t_body">14sp</dimen>
+
+    <dimen name="card_border_radius">8dp</dimen>
+    <dimen name="card_view_default_elevation">2dp</dimen>
+
+    <!-- Default global paddings-->
+    <dimen name="quarter_default_padding">4dp</dimen>
+    <dimen name="half_default_padding">8dp</dimen>
+    <dimen name="three_quarter_default_padding">12dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+
+    <!-- Default global margins-->
+    <dimen name="quarter_default_margin">4dp</dimen>
+    <dimen name="half_default_margin">8dp</dimen>
+    <dimen name="default_margin">16dp</dimen>
+
+    <dimen name="min_width_button">64dp</dimen>
+
+</resources>

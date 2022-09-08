@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.news.sources.presentation.SourcesViewModel" />
+
+        <variable
+            name="handler"
+            type="com.example.news.base.ui.error.FullPageErrorStateClickHandler" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{ () -> viewModel.fetchSourceList() }"
+            app:refreshing="@{ viewModel.viewState.isLoading }">
+
+            <com.airbnb.epoxy.EpoxyRecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <include
+            layout="@layout/include_error_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{ viewModel.viewState.errorState == null ? View.GONE : View.VISIBLE }"
+            app:clickHandlers="@{ handler }"
+            app:errorState="@{ viewModel.viewState.errorState }" />
+    </FrameLayout>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_headlines"
+        android:icon="@drawable/ic_navigation_headlines"
+        android:title="@string/navigation_button_headlines" />
+
+    <item
+        android:id="@+id/action_sources"
+        android:icon="@drawable/ic_navigation_sources"
+        android:title="@string/navigation_button_sources" />
+
+    <item
+        android:id="@+id/action_saved"
+        android:icon="@drawable/ic_navigation_bookmark"
+        android:title="@string/navigation_button_saved" />
+
+</menu>

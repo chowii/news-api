@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.news.feature.headlines.data.ArticleUiModel" />
+
+        <variable
+            name="clickListener"
+            type="com.example.news.feature.headlines.presentation.OnHeadlineItemClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{ () -> clickListener.onHeadlineClicked(data.url, data.title) }"
+        android:layout_margin="@dimen/quarter_default_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/half_default_padding">
+
+            <ImageView
+                android:id="@+id/headline_author_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/half_default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:minWidth="64dp"
+                android:minHeight="64dp"
+                android:importantForAccessibility="no"
+                app:imageUrl="@{ data.urlToImage }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/headline_author"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/headline_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/quarter_default_margin"
+                android:text="@{ data.author }"
+                android:textAppearance="?attr/textAppearanceCaption"
+                app:layout_constraintBottom_toTopOf="@id/headline_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/headline_author_img"
+                app:layout_constraintTop_toTopOf="@id/headline_author_img"
+                tools:text="@tools:sample/cities" />
+
+            <TextView
+                android:id="@+id/headline_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:text="@{ data.title }"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@id/headline_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/headline_author"
+                app:layout_constraintTop_toBottomOf="@id/headline_author"
+                tools:text="@tools:sample/cities" />
+
+            <TextView
+                android:id="@+id/headline_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/quarter_default_margin"
+                android:layout_marginBottom="@dimen/half_default_margin"
+                android:text="@{ data.description }"
+                app:layout_constraintBottom_toBottomOf="@id/headline_author_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/headline_author"
+                app:layout_constraintTop_toBottomOf="@id/headline_title"
+                tools:text="@tools:sample/cities" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

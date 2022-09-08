@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.news.feature.saved.SavedUiModel" />
+
+        <variable
+            name="clickListener"
+            type="com.example.news.feature.saved.OnSavedArticleClickListener" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/quarter_default_margin"
+        android:padding="@dimen/half_default_padding"
+        android:onClick="@{ () -> clickListener.onSaveArticleClicked(data.title, data.url) }">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/half_default_margin"
+            android:gravity="center_vertical"
+            android:minHeight="32dp"
+            android:text="@{ data.title }" />
+    </com.google.android.material.card.MaterialCardView>
+</layout>

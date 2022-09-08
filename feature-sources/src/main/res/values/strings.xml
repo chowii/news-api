@@ -1,0 +1,9 @@
+<resources>
+    <!-- Error Message -->
+    <string name="no_network_title">Network Connection Error</string>
+    <string name="network_error_message">There seems to be no Network Connectivity. Unable to load Sources due to connection error</string>
+    <string name="server_error_title">Server Error</string>
+    <string name="server_error_message">Uh-oh! There seems to be some problem. Unable to load Sources at this time</string>
+
+    <string name="try_again">Try Again</string>
+</resources>

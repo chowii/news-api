@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.example.news.base.ui.utils.UiConstants" />
+
+        <variable
+            name="errorState"
+            type="com.example.news.base.ui.error.FullPageErrorCause" />
+
+        <variable
+            name="clickHandlers"
+            type="com.example.news.base.ui.error.FullPageErrorStateClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:colorBackground">
+
+        <ImageView
+            android:id="@+id/error_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/three_quarter_default_padding"
+            android:importantForAccessibility="no"
+            android:minWidth="160dp"
+            android:minHeight="160dp"
+            android:scaleType="fitCenter"
+            app:vectorSrc="@{ errorState.drawableRes }"
+            android:visibility="@{ errorState.drawableRes == UiConstants.INVALID_RESOURCE_ID ? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toTopOf="@+id/error_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/error_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingTop="@dimen/quarter_default_padding"
+            android:paddingBottom="@dimen/quarter_default_padding"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintBottom_toTopOf="@id/error_message_text_view"
+            app:layout_constraintEnd_toEndOf="@id/error_message_right_guideline"
+            app:layout_constraintStart_toStartOf="@id/error_message_left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/error_image_view"
+            app:visibleIfAvailable="@{ errorState.title }"
+            tools:text="@tools:sample/lorem"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/error_message_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:breakStrategy="balanced"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingTop="@dimen/quarter_default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            app:layout_constraintBottom_toTopOf="@+id/error_primary_action"
+            app:layout_constraintEnd_toEndOf="@id/error_message_right_guideline"
+            app:layout_constraintStart_toStartOf="@id/error_message_left_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/error_title"
+            app:visibleIfAvailable="@{ errorState.message }"
+            tools:text="Unable to load product information due to connection error." />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/error_message_left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/error_message_right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/error_actions_button_left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/error_actions_button_right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <Button
+            android:id="@+id/error_primary_action"
+            style="@style/Button.Primary.Flat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ () -> clickHandlers.onPrimaryActionClicked() }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/error_message_text_view"
+            app:visibleIfAvailable="@{ errorState.primaryActionRes }"
+            tools:text="Try Again" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

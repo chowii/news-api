@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Error Message -->
+    <string name="headlines_no_network_title">Network Connection Error</string>
+    <string name="headlines_network_error_message">There seems to be no Network Connectivity. Unable to load Headlines due to connection error</string>
+    <string name="headlines_server_error_title">Server Error</string>
+    <string name="headlines_server_error_message">Uh-oh! There seems to be some problem. Unable to load Headlines at this time</string>
+
+    <string name="headlines_try_again">Try again</string>
+    <string name="save_for_later">Save for later</string>
+
+</resources>

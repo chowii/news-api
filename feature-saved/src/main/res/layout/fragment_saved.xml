@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.news.feature.saved.SavedViewModel" />
+        <variable
+            name="handler"
+            type="com.example.news.base.ui.error.FullPageErrorStateClickHandler" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.SavedFragment">
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item_saved" />
+
+        <include
+            layout="@layout/include_error_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{ viewModel.viewState.errorState == null ? View.GONE : View.VISIBLE }"
+            app:clickHandlers="@{ handler }"
+            app:errorState="@{ viewModel.viewState.errorState }" />
+    </FrameLayout>
+</layout>
