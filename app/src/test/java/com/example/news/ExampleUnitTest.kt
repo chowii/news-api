@@ -1,4 +1,4 @@
-package com.medibank.shop
+package com.example.news
 
 import org.junit.Test
 
